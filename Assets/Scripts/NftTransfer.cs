@@ -23,6 +23,7 @@ public class NftTransfer : MonoBehaviour
     public Sprite nftBlankSprite;
     public TMP_Text nftDetailsName;
     public TMP_Text nftDetailsDescription;
+    public TMP_Text nftAmount;
 
     public TMP_InputField inputFieldWalletAddress;
     public TMP_InputField inputFieldAmount;
@@ -31,7 +32,7 @@ public class NftTransfer : MonoBehaviour
 
     public ChainEngineSDK client;
     public Helper helper;
-    // Start is called before the first frame update
+
     void Start()
     {
         client = ChainEngineSDK.Instance();
@@ -44,6 +45,7 @@ public class NftTransfer : MonoBehaviour
         nftDetailsImage.overrideSprite = nftBlankSprite;
         nftDetailsName.text = "Nft Name";
         nftDetailsDescription.text = "Nft Description";
+        nftAmount.text = "0";
 
         inputFieldAmount.text = "";
         inputFieldWalletAddress.text = "";
@@ -55,13 +57,15 @@ public class NftTransfer : MonoBehaviour
         nftId = nft.Id;
         nftDetailsName.text = nft.Metadata.Name;
         nftDetailsDescription.text = nft.Metadata.Description;
-    }
+        nftAmount.text = nft.Holders[client.Player.Id].ToString();
+}
     public void OnBackButtonClick()
     {
         helper.NavFromTo(nftTransferMenu, playerNftsMenu);
+        playerNFTs.GetPlayerNFTs();
         InitValues();
     }
-    public void OnSendButtonClick()
+    public async void OnSendButtonClick()
     {
         inputFieldWalletAddress = inputFieldWalletAddress.GetComponent<TMP_InputField>();
         walletAddress = inputFieldWalletAddress.text;
@@ -70,8 +74,6 @@ public class NftTransfer : MonoBehaviour
         amount = inputFieldAmount.text;
 
         TransferNFT();
-        //playerNFTs.GetPlayerNFTs();
-        //helper.NavFromTo(nftTransferMenu, playerNftsMenu);
     }
     private void TransferNFT()
     {

@@ -56,11 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Helpers\Helper.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerNFTs.cs" />
     <Compile Include="Assets\Scripts\NftDetails.cs" />
     <Compile Include="Assets\Scripts\NftTransfer.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -333,7 +333,7 @@
       <HintPath>E:\Unity Editor\2022.1.16f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@7a7478502d\Runtime\Packages\SocketIOUnity\Runtime\libs\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@244b405594\Runtime\Packages\SocketIOUnity\Runtime\libs\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.Unsafe.dll</HintPath>
@@ -348,10 +348,10 @@
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@7a7478502d\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@244b405594\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encodings.Web">
-      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@7a7478502d\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Text.Encodings.Web.dll</HintPath>
+      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@244b405594\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
@@ -360,13 +360,13 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive">
-      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@7a7478502d\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Reactive.dll</HintPath>
+      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@244b405594\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Reactive.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Json">
-      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@7a7478502d\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Text.Json.dll</HintPath>
+      <HintPath>Library\PackageCache\xyz.chainengine.unity-sdk@244b405594\Runtime\Packages\SocketIOUnity\Runtime\libs\System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>E:\Unity Editor\2022.1.16f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

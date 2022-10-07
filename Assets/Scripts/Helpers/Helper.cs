@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class Helper : MonoBehaviour
 {
+    public Button[] paginationButtons;
+    public Sprite paginationCurrentPageSprite;
+    public Sprite paginationNormalPageSprite;
+    private Color paginationCurrentFontColor = Color.white;
+    private Color paginationNormalFontColor = Color.black;
+
     public IEnumerator GetImageUriNftCoroutine(string uri, Image img)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture($"{uri}");
@@ -30,5 +37,33 @@ public class Helper : MonoBehaviour
     {
         fromMenu.SetActive(false);
         toMenu.SetActive(true);
+    }
+
+    public void SetPaginationButtonState(Button button, string page, bool isCurrent)
+    {
+        button.GetComponentInChildren<TMP_Text>().text = page;
+
+        if (isCurrent)
+        {
+            button.GetComponentInChildren<TMP_Text>().color = paginationCurrentFontColor;
+            button.image.overrideSprite = paginationCurrentPageSprite;
+        }
+        else
+        {
+            button.GetComponentInChildren<TMP_Text>().color = paginationNormalFontColor;
+            button.image.overrideSprite = paginationNormalPageSprite;
+        }
+    }
+    public void SetPaginationCurrentPage(int currentPage, long totalPage)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            int page = int.Parse(paginationButtons[i].GetComponentInChildren<TMP_Text>().text);
+            if (page == currentPage && currentPage != 1 && currentPage != totalPage)
+            {
+                SetPaginationButtonState(paginationButtons[i], page.ToString(), true);
+                break;
+            }
+        }
     }
 }

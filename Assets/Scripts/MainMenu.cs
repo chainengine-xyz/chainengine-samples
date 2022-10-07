@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Networking;
 using TMPro;
 using ChainEngine;
 using ChainEngine.Actions;
@@ -15,13 +12,11 @@ public class MainMenu : MonoBehaviour
     public TMP_InputField inputFieldWalletAddress;
     public TMP_InputField inputFieldNftId;
 
+    public GameObject loginMenu;
     public GameObject mainMenu;
-    public GameObject nftDetails;
-    public GameObject nftGrid;
+    public GameObject nftDetailsMenu;
+    public GameObject nftPlayerNFTs;
 
-    public Image nftImage;
-    public TMP_Text nftName;
-    public TMP_Text nftDescription;
     public Button netModeButton;
 
     public Sprite mainNetModeSprite;
@@ -30,19 +25,18 @@ public class MainMenu : MonoBehaviour
     private ChainEngineSDK client;
     public Helper helper;
 
-    // Start is called before the first frame update
     void Start()
     {
         client = ChainEngineSDK.Instance();
     }
     public void OnBackToMainMenuFromNftDetailsClick()
     {
-        helper.NavFromTo(nftDetails, mainMenu);
+        helper.NavFromTo(nftDetailsMenu, mainMenu);
     }
 
     public void OnBackToMainMenuFromNftGridClick()
     {
-        helper.NavFromTo(nftGrid, mainMenu);
+        helper.NavFromTo(nftPlayerNFTs, mainMenu);
     }
 
     public async void CreateOrFetchPlayer()
@@ -109,12 +103,28 @@ public class MainMenu : MonoBehaviour
 
         Debug.Log($"Net mode changed to '{client.ApiMode}'");
     }
+    private void OnEnable()
+    {
+        ChainEngineActions.OnAuthSuccess += OnAuthSuccess;
+        ChainEngineActions.OnAuthFailure += OnAuthFailure;
+    }
+
+    private void OnDisable()
+    {
+        ChainEngineActions.OnAuthSuccess -= OnAuthSuccess;
+        ChainEngineActions.OnAuthFailure -= OnAuthFailure;
+    }
 
     private void OnAuthSuccess(Player player)
     {
         Debug.Log($"Player Id: {player?.Id}\n" +
                   $"Wallet Address: {player?.WalletAddress}\n" +
                   $"Token: {player?.Token}\n");
+
+        if(loginMenu != null)
+        {
+            helper.NavFromTo(loginMenu, mainMenu);
+        }
     }
 
     private void OnAuthFailure(AuthError error)
